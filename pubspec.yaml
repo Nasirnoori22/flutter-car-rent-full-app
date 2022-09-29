@@ -41,6 +41,9 @@ dependencies:
   flutter_image_slideshow: ^0.1.4
   show_up_animation: ^2.0.0
   bottom_bar: ^2.0.2
+  modal_bottom_sheet: ^2.1.2
+  animations: ^2.0.5
+  onboarding_screen: ^0.0.3
  
 
 dev_dependencies:

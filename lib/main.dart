@@ -1,5 +1,6 @@
 import 'package:car_rent/home_page.dart';
 import 'package:car_rent/models/cars.dart';
+import 'package:car_rent/pages/onboarding/home.dart';
 import 'package:car_rent/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(),
       // ignore: null_check_always_fails
-      home: StartScreen(),
+      home: InterductionPage(),
     );
   }
 }

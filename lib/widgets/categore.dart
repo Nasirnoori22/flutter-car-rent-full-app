@@ -1,7 +1,10 @@
+import 'package:animations/animations.dart';
 import 'package:car_rent/widgets/slider.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import 'car_details.dart';
 
 class Categore extends StatelessWidget {
   Categore({Key? key}) : super(key: key);
@@ -34,13 +37,26 @@ class Categore extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: ImageSlideshow(children: [
                   //slider balboard widget
-                  DelayedDisplay(
-                    delay: Duration(microseconds: 2000),
-                    child: SliderWidget(
-                      image: 'assets/images/car1.png',
-                      title: 'Rolls-Royce Cullinan',
-                    ),
-                  ),
+                  OpenContainer(
+                      closedShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
+                      closedColor: Color(0xff201d2b),
+                      openColor: Color(0xff201d2b),
+                      transitionDuration: const Duration(milliseconds: 500),
+                      transitionType: ContainerTransitionType.fadeThrough,
+                      closedBuilder: ((context, action) {
+                        return DelayedDisplay(
+                          delay: Duration(microseconds: 2000),
+                          child: SliderWidget(
+                            image: 'assets/images/car1.png',
+                            title: 'Rolls-Royce Cullinan',
+                          ),
+                        );
+                      }),
+                      openBuilder: (context, action) {
+                        return CarDetails();
+                      }),
+
                   DelayedDisplay(
                     delay: Duration(microseconds: 2000),
                     child: SliderWidget(
