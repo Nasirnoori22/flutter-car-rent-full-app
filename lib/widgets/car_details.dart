@@ -2,6 +2,8 @@ import 'package:car_rent/models/details.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/mapConfig/main_pag.dart';
+
 class CarDetails extends StatelessWidget {
   CarDetails({Key? key}) : super(key: key);
   List<Color> bg_color = [
@@ -292,7 +294,13 @@ class CarDetails extends StatelessWidget {
                               height: 60,
                               width: MediaQuery.of(context).size.width * 0.4,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MapSample()),
+                                  );
+                                },
                                 child: Text(
                                   'Book a car',
                                   style: TextStyle(

@@ -1,6 +1,9 @@
+import 'package:car_rent/home_page.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import '../../start_screen.dart';
 
 class InterductionPage extends StatelessWidget {
   const InterductionPage({Key? key}) : super(key: key);
@@ -19,7 +22,12 @@ class InterductionPage extends StatelessWidget {
                 style: TextStyle(color: Color(0xffb99e70), fontSize: 20),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => StartScreen()),
+                    );
+                  },
                   child: Text(
                     'Skip',
                     style: TextStyle(color: Colors.white, fontSize: 18),

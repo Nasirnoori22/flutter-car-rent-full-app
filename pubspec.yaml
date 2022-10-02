@@ -44,6 +44,8 @@ dependencies:
   modal_bottom_sheet: ^2.1.2
   animations: ^2.0.5
   onboarding_screen: ^0.0.3
+  go_router: ^4.5.1
+  google_maps_flutter: ^2.2.1
  
 
 dev_dependencies:

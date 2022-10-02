@@ -190,6 +190,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       right: MediaQuery.of(context).size.height * 0.2 + 40,
