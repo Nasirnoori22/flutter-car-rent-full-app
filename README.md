@@ -24,6 +24,7 @@ flutter run
 ![Simulator Screen Shot - iPhone 11 - 2022-10-10 at 13 33 22](https://user-images.githubusercontent.com/24554971/194831844-67ee7ca0-35e4-4225-99e7-3fb23ce79981.png)
 
 ### Packages used in this Project 
+ ```
  get: ^4.6.5
   animation_list: ^2.2.0
   flutter_slider_drawer: ^2.1.1
@@ -38,7 +39,7 @@ flutter run
   google_maps_flutter: ^2.2.1
   flutter_polyline_points: ^1.0.0
   location: ^4.4.0
-
+```
 ## Follow me on youtube and Instagram
 ## https://www.instagram.com/coding_flutter/
 ## https://www.youtube.com/channel/UCd1oZedP2VAOipHTggmD9fg
