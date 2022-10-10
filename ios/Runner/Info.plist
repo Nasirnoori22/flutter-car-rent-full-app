@@ -2,12 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
+	<string>App app want's to access your location to get address</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App app want's to access your location to get address.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App app want's to access your location to get address.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string> App want's to access your location to get address.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Car Rent</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -45,5 +54,9 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+
+	<!-- <string>NSLocationWhenInUseUsageDescription<string>
+	<string>NSLocationAlwaysUsageDescription<string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription<key> -->
 </dict>
 </plist>

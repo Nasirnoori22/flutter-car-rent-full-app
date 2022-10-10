@@ -1,5 +1,10 @@
+import 'dart:async';
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 class MapSample extends StatefulWidget {
   @override
@@ -7,6 +12,52 @@ class MapSample extends StatefulWidget {
 }
 
 class MapSampleState extends State<MapSample> {
+  static const String google_api_key =
+      "AIzaSyDQ2c_pOSOFYSjxGMwkFvCVWKjYOM9siow";
+  final Completer<GoogleMapController> _controller = Completer();
+
+  static const LatLng sourceLocation =
+      LatLng(34.555348863741344, 69.1714882322193);
+  static const LatLng destination =
+      LatLng(34.52936870695963, 69.17120824305381);
+//define the current location of google map
+  LocationData? currentLocation;
+  //get function how get the current location from
+  void getCurrentLocation() {
+    Location location = Location();
+    location.getLocation().then(
+      (location) {
+        currentLocation = location;
+      },
+    );
+  }
+
+  List<LatLng> polyLineCoordints = [];
+  //poly lines list of empty
+  void getPolyPoints() async {
+    PolylinePoints polylinePoints = PolylinePoints();
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      google_api_key,
+      PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
+      PointLatLng(destination.latitude, destination.longitude),
+    );
+    if (result.points.isNotEmpty) {
+      result.points.forEach(
+        (PointLatLng point) => polyLineCoordints.add(
+          LatLng(point.latitude, point.longitude),
+        ),
+      );
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    getCurrentLocation();
+    getPolyPoints();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -19,8 +70,25 @@ class MapSampleState extends State<MapSample> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                      target: LatLng(34.543896, 69.160652), zoom: 14),
+                  initialCameraPosition:
+                      CameraPosition(target: sourceLocation, zoom: 14.5),
+                  polylines: {
+                    Polyline(
+                        polylineId: PolylineId("route"),
+                        points: polyLineCoordints,
+                        color: Color.fromARGB(255, 101, 90, 220),
+                        width: 6),
+                  },
+                  markers: {
+                    Marker(
+                      markerId: MarkerId("Source Location"),
+                      position: sourceLocation,
+                    ),
+                    Marker(
+                      markerId: MarkerId("Destination Location"),
+                      position: destination,
+                    ),
+                  },
                 ),
               ),
               Container(
@@ -143,7 +211,9 @@ class MapSampleState extends State<MapSample> {
                             height: 60,
                             width: MediaQuery.of(context).size.width * 0.9,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                print('');
+                              },
                               child: Text(
                                 'Next',
                                 style: TextStyle(

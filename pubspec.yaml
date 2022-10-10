@@ -46,6 +46,9 @@ dependencies:
   onboarding_screen: ^0.0.3
   go_router: ^4.5.1
   google_maps_flutter: ^2.2.1
+  flutter_polyline_points: ^1.0.0
+  location: ^4.4.0
+  
  
 
 dev_dependencies:
